@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {AfterViewInit, Component, inject, OnInit, ViewChild} from '@angular/core';
 import {CourseCreateAndEditComponent} from "../../components/course-create-and-edit/course-create-and-edit.component";
 import {Course} from "../../model/course.entity";
 import {
@@ -11,6 +11,8 @@ import {
 } from "@angular/material/table";
 import {MatIcon} from "@angular/material/icon";
 import {CoursesService} from "../../services/courses.service";
+import {MatSort, MatSortHeader} from "@angular/material/sort";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-course-management',
@@ -27,14 +29,23 @@ import {CoursesService} from "../../services/courses.service";
     MatHeaderRow,
     MatRow,
     MatHeaderRowDef,
-    MatRowDef
+    MatRowDef,
+    MatSort,
+    MatSortHeader,
+    MatPaginator
   ],
   templateUrl: './course-management.component.html',
   styleUrl: './course-management.component.css'
 })
-export class CourseManagementComponent implements OnInit {
+export class CourseManagementComponent implements OnInit, AfterViewInit {
   protected courseData!: Course;
   protected columnsToDisplay: string[] = ['id', 'title', 'description', 'actions'];
+
+  @ViewChild(MatSort, {static: false})
+  protected sort!: MatSort;
+
+  @ViewChild(MatPaginator, {static: false})
+  protected paginator!: MatPaginator;
 
   protected isEditMode: boolean = false;
   protected dataSource!: MatTableDataSource<any>;
@@ -49,6 +60,11 @@ export class CourseManagementComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCourses();
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   getAllCourses(){
@@ -109,4 +125,5 @@ export class CourseManagementComponent implements OnInit {
     this.courseData = new Course({});
     this.isEditMode = false;
   }
+
 }
