@@ -21,7 +21,7 @@ export class PageNotFoundComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.invalidUrl = this.route.snapshot.url[0].path;
+    this.invalidUrl = this.route.snapshot.url.map(element => element.path).join('/');
   }
 
   protected onNavigateHome() {
