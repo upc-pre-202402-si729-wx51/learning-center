@@ -1,5 +1,21 @@
 {
-  "courses": [],
+  "courses": [
+    {
+      "id": 1,
+      "title": "sampl1",
+      "description": "sample course"
+    },
+    {
+      "id": 2,
+      "title": "sample2",
+      "description": "sample2 desc"
+    },
+    {
+      "id": 3,
+      "title": "asd",
+      "description": "asdasdsa"
+    }
+  ],
   "students": [],
   "enrollments": []
 }
