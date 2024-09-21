@@ -13,6 +13,7 @@ import {MatIcon} from "@angular/material/icon";
 import {CoursesService} from "../../services/courses.service";
 import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-course-management',
@@ -32,7 +33,8 @@ import {MatPaginator} from "@angular/material/paginator";
     MatRowDef,
     MatSort,
     MatSortHeader,
-    MatPaginator
+    MatPaginator,
+    NgClass
   ],
   templateUrl: './course-management.component.html',
   styleUrl: './course-management.component.css'
