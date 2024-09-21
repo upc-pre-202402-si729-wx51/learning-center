@@ -17,7 +17,7 @@ export class BaseService<T> {
   protected resourceEndPoint: string = '/resources';
 
   protected resourcePath(): string {
-    return `${this.basePath}/${this.resourceEndPoint}`;
+    return `${this.basePath}${this.resourceEndPoint}`;
   }
 
   public create(item: any): Observable<T> {
