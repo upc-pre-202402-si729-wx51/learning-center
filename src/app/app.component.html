@@ -1,1 +1,8 @@
-<router-outlet />
+<mat-toolbar color="primary">
+  <h1>ACME Learning Center</h1>
+  <div class="mat-spacer"></div>
+  @for (option of options; track option.title) {
+    <a mat-button [routerLink]="option.path">{{ option.title }}</a>
+  }
+</mat-toolbar>
+<router-outlet/>
