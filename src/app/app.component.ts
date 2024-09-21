@@ -3,11 +3,14 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 import {TranslateService} from "@ngx-translate/core";
 import {MatToolbar} from "@angular/material/toolbar";
 import {MatAnchor} from "@angular/material/button";
+import {
+  LanguageSwitcherComponent
+} from "./public/components/language-switcher/language-switcher/language-switcher.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbar, MatAnchor, RouterLink],
+  imports: [RouterOutlet, MatToolbar, MatAnchor, RouterLink, LanguageSwitcherComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
