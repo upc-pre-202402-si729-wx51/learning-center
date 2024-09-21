@@ -1,1 +1,4 @@
-export const environments = {};
+export const environments = {
+  production: true,
+  serverBasePath: null,
+};
